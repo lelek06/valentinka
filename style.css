@@ -58,7 +58,7 @@ html {
 
 
 h1 {
-   font-size: 12rem;
+   font-size: 4em;
    /* 56px */
    line-height: 1.15;
    font-weight: 900;
@@ -186,4 +186,10 @@ main {
 /* HIDE ELEMENTS */
 .hidden {
   display: none;
+}
+
+@media (max-width: 600px) {
+h1 {
+   font-size: 3em;
+}
 }
