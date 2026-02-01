@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valentin</title>
+  <meta name="author" content="Maxim Vasiliev">
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+
+
+<body>
+  <main>
+    <div class="container valentin">
+      <div class="valentin-wrap">
+
+        <img src="valentines-day-svgrepo-com.svg" alt="valentin" width="200">
+
+        <h1 style="font-size: 4em;">Budeš mojou valentínkou?</h1>
+
+<div class="btn">
+  <button class="ano">ÁNO</button>
+  <button class="nie">NIE</button>
+</div>
+
+<img src="gif.gif" alt="love gif" width="300" class="gif hidden" style="border-radius: 10px;">
+
+      </div>
+    </div>
+  </main>
+
+<script>
+const nie = document.querySelector('.nie');
+const ano = document.querySelector('.ano');
+const gif = document.querySelector('.gif');
+const btn = document.querySelector('.btn');
+
+nie.addEventListener('mouseenter', () => {
+  const btnRect = btn.getBoundingClientRect();
+
+  // movement range (safe, doesn’t break layout)
+  const maxX = btnRect.width / 2 - 100;
+  const maxY = btnRect.height / 2 - 40;
+
+  // allow left AND right, up AND down
+  const x = (Math.random() * maxX * 2) - maxX;
+  const y = (Math.random() * maxY * 2) - maxY;
+
+  nie.style.transform = `translate(${x}px, ${y}px)`;
+
+  // grow YES when NO is hovered
+  ano.classList.add('grow');
+});
+
+ano.addEventListener('mouseenter', () => {
+  ano.classList.add('grow');
+});
+
+ano.addEventListener('mouseleave', () => {
+  ano.classList.remove('grow');
+});
+
+ano.addEventListener('click', () => {
+  btn.style.display = 'none';
+  gif.classList.remove('hidden');
+});
+</script>
+
+</body>
+
+</html>
